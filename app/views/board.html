@@ -1,0 +1,25 @@
+<md-content>
+  <section layout="row" layout="column" layout-align="center center" flex ng-if="!boardCtrl.ballSelected">
+  <span>Veuillez sélectionner une boule pour être la plus lourde</span>
+  </section>
+  <section class='md-padding' layout="row" flex id="balls-section">
+    <ul layout="row" flex style="padding-left: 0">
+      <li class="parent" layout="column" ng-repeat="ball in boardCtrl.balls track by ball.number" flex>
+        <ball data="ball" ng-click="boardCtrl.choose($index)"></ball>
+      </li>
+    </ul>
+  </section>
+  <section layout="row" layout="column" layout-align="center center" flex>
+    <md-card>
+      <img ng-src="/images/balance.png" class="md-card-image half-width" >
+    </md-card>
+  </section>
+  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <md-button ng-disabled="!boardCtrl.ballSelected" class="md-raised md-primary" ng-click="boardCtrl.resolve()">Exécuter</md-button>
+    <md-button class="md-raised md-warn" ng-click="boardCtrl.reset()">Reset</md-button>
+  </section>
+  <section layout="row" layout="column" layout-align="center center" flex ng-if="boardCtrl.solution">
+    <p> C'est la boule <span class="bold red">{{boardCtrl.solution.heaviestBall}}</span> qui est la plus lourde! Solution trouvée en <span class="bold   red">{{boardCtrl.solution.iterations}}</span> itérations</p>
+  </section>
+</md-content>
+
