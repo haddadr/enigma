@@ -6,11 +6,13 @@ version 0.16.0.
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for preview.
+
 ## Install & run
-Under app folder execute these commands:
- npm install
- bower install
- grunt serve
+Under enigma folder execute these commands:
+* npm install
+* bower install
+* grunt serve
+
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
